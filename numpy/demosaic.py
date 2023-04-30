@@ -39,9 +39,9 @@ def demosaic_fast(input):
     blue_mask = np.array([[0, 1], [0, 0]])
     red_mask = np.array([[0, 0], [1, 0]])
 
-    green_repeat = np.tile(green_mask, (1536, 2040))
-    blue_repeat = np.tile(blue_mask, (1536, 2040))
-    red_repeat = np.tile(red_mask, (1536, 2040))
+    green_repeat = np.tile(green_mask, input.shape)
+    blue_repeat = np.tile(blue_mask, input.shape)
+    red_repeat = np.tile(red_mask, input.shape)
 
     input_g = input * green_repeat
     input_b = input * blue_repeat

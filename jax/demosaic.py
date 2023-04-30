@@ -10,9 +10,9 @@ def demosaic_jax(input):
     blue_mask = jnp.array([[0, 1], [0, 0]])
     red_mask = jnp.array([[0, 0], [1, 0]])
 
-    green_repeat = jnp.tile(green_mask, (1536, 2040))
-    blue_repeat = jnp.tile(blue_mask, (1536, 2040))
-    red_repeat = jnp.tile(red_mask, (1536, 2040))
+    green_repeat = jnp.tile(green_mask, input.shape)
+    blue_repeat = jnp.tile(blue_mask, input.shape)
+    red_repeat = jnp.tile(red_mask, input.shape)
 
     input_g = input * green_repeat
     input_b = input * blue_repeat
